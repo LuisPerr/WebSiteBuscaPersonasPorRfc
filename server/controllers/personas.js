@@ -32,22 +32,22 @@ personas.prototype.get_personasrfc = function (req, res, next) {
     ];
 
     this.model.query('[dbo].[Rfc_getPersonaByRFC_SP]', params, function (error, result) {
-        console.log( "error", error );
-        console.log( "result", result );
-        // try{
-        //     if( result.length > 0 ){
-        //         respuesta.success = 1;
-        //         respuesta.msg = 'Registro encontrado.';
-        //         respuesta.data = result[0];
-        //     }else{
-        //         respuesta.success = 0;
-        //         respuesta.msg = 'No se encontro ningun registro con para ese el RFC ' + clienteRfc;
-        //     }
-        // }
-        // catch(e){
-        //     respuesta.success = 0;
-        //     respuesta.msg = 'No se encontro ningun registro con para ese el RFC ' + clienteRfc;
-        // }
+        // console.log( "error", error );
+        // console.log( "result", result );
+        try{
+            if( result.length > 0 ){
+                respuesta.success = 1;
+                respuesta.msg = 'Registro encontrado.';
+                respuesta.data = result[0];
+            }else{
+                respuesta.success = 0;
+                respuesta.msg = 'No se encontro ningun registro con para ese el RFC ' + clienteRfc;
+            }
+        }
+        catch(e){
+            respuesta.success = 0;
+            respuesta.msg = 'No se encontro ningun registro con para ese el RFC ' + clienteRfc;
+        }
         self.view.expositor(res, {
             error: error,
             result: respuesta,
