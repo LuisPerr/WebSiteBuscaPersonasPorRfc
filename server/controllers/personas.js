@@ -17,7 +17,6 @@ var personas = function (conf) {
 Funcionalidad de traer una persona con su RFC*/
 personas.prototype.get_personasrfc = function (req, res, next) {
     
-    console.log("Servicio");
     var respuesta = {
         success: 0,
         msg: '',
@@ -32,8 +31,7 @@ personas.prototype.get_personasrfc = function (req, res, next) {
     ];
 
     this.model.query('[dbo].[Rfc_getPersonaByRFC_SP]', params, function (error, result) {
-        // console.log( "error", error );
-        // console.log( "result", result );
+        
         try{
             if( result.length > 0 ){
                 respuesta.success = 1;
