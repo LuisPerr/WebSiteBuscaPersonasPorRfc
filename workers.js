@@ -15,7 +15,7 @@ var Workers = function(config){
 }
 
 Workers.prototype.run = function(){
-	this.server.listen(conf.port);
+	this.server.listen(conf.port,"0.0.0.0");
 }
 
 if(module.parent){
