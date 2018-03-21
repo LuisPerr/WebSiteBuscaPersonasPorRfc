@@ -45,11 +45,11 @@ var ExpressServer = function(config){
   }
 
   //Servimos el archivo angular
-  this.expressServer.get('*', function(req, res){
+  this.expressServer.get('/', function(req, res){
     res.sendFile(path.resolve('dist/index.html'));
   });
 
-  this.expressServer.post('*', function(req, res){
+  this.expressServer.post('/', function(req, res){
       res.render('index', {});
   });
 };
