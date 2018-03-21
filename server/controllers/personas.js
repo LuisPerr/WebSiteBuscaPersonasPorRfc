@@ -16,7 +16,7 @@ var personas = function (conf) {
 /*/api/personas/personasrfc
 Funcionalidad de traer una persona con su RFC*/
 personas.prototype.get_personasrfc = function (req, res, next) {
-    
+    console.log( "Hola server personas" );
     var respuesta = {
         success: 0,
         msg: '',
@@ -46,7 +46,7 @@ personas.prototype.get_personasrfc = function (req, res, next) {
             respuesta.success = 0;
             respuesta.msg = 'No se encontro ningun registro con para ese el RFC ' + clienteRfc;
         }
-        console.log( 'success', respuesta.success );
+        
         self.view.expositor(res, {
             error: error,
             result: respuesta,
